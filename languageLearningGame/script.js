@@ -5,6 +5,23 @@ let question = {
     correctAnswer: 1
 };
 
+function start() {
+    // show each alternative
+    let alts = document.querySelectorAll('.alternative');
+
+    alts.forEach(function (element, index) {
+        element.addEventListener('click', function () {
+            //check correct answer
+            console.log('check correct answer')
+        });
+
+    });
+
+    //show first question
+    showQuestion(question);
+    
+}
+
 // function for showing the question
 function showQuestion(q) {
     // 1. select dom element
@@ -20,22 +37,11 @@ function showQuestion(q) {
     // show each alternative
     alts.forEach(function (element, index) {
         element.textContent = q.alternatives[index];
-
-        element.addEventListener('click', function () {
-            //check correct answer
-            if (q.correctAnswer == index) {
-                console.log("Correct answer!");
-            }
-            else {
-                console.log("Wrong answer!");
-            }
         });
-
-    });
 }
 
 // call the function
-showQuestion(question);
+start();
 
 let btn = document.getElementById('btn');
 
